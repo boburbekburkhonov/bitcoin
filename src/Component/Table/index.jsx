@@ -17,6 +17,9 @@ function index(props) {
       <thead>
         <tr>
           <th>
+           #
+          </th>
+          <th>
            Cryto Name
           </th>
           <th>
@@ -30,10 +33,13 @@ function index(props) {
           </th>
         </tr>
       </thead>
-        {coins.map(item => {
+        {coins.map((item, index) => {
           return (
             <tbody key={item.id}>
             <tr>
+                <td>
+                {index + 1}
+                </td>
                 <td>
                   <img className='me-3' src={item.image} alt="logo" width={32} height='32' />
                   {item.name}
@@ -43,11 +49,11 @@ function index(props) {
                 </td>
                {item.market_cap_change_percentage_24h < 0 ?
                <td className='text-danger'>
-                {item.market_cap_change_percentage_24h.toFixed(2)}%
+                {item.market_cap_change_percentage_24h?.toFixed(2)}%
                </td>
               :
               <td className='text-success'>
-                {item.market_cap_change_percentage_24h.toFixed(2)}%
+                {item.market_cap_change_percentage_24h?.toFixed(2)}%
               </td>
               }
                 <td>
